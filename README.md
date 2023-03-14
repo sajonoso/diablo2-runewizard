@@ -3,7 +3,7 @@
   <img width="600" src="https://user-images.githubusercontent.com/169391/112649013-59306500-8e4a-11eb-8761-5e2df91856fb.png" />
 </p>
 <p align="center">
-  Live site <strong><a href="https://sajonoso.github.io/diablo2-runewizard">fabd.github.io/diablo2-runewizard</a></strong>
+  Live site <strong><a href="https://sajonoso.github.io/diablo2-runewizard">sajonoso.github.io/diablo2-runewizard</a></strong>
 </p>
 
 <p align="center"><em>Runewizard for Diablo II helps you keep track of the runes you have found and what runewords you can make with them.</em></p>
@@ -13,8 +13,12 @@
 
 ## About this fork
 
-This is a fork of the Diablo 2 rune wizard.  This fork contains an extension to the application to automatically select the runes from your character file.
+This is a fork of the Diablo 2 runewizard.  This fork contains an extension to the application to automatically select the runes from your character file.
 Simply drag and drop the .d2s character file into the orange box into the top of the page to automatically select the runes that your character has in their possession.
+
+In this repository the `main` branch will be kept up to date with the upstream repository and any changes will be made in the `published` branch only
+
+The rest of this document is the same as the upstream repository
 
 ## Background
 

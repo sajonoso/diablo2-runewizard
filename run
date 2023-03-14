@@ -1,0 +1,26 @@
+#!/bin/sh
+
+post_build() {
+  if [ ! -d docs ]; then mkdir docs ; fi
+
+  # rename javascript file to known name
+  mv dist/assets/index.*.js dist/assets/index.main.js
+  cp -r dist/* docs/
+  rm docs/assets/index.main.js
+
+  AWK_SCRIPT='
+    /<script type="module"/ { gsub(/<script type="module".*<\/script>/, "") };
+    /<\/body>/ { print "<script>\n";
+    while(( getline line<"dist/assets/index.main.js") > 0 ) { print line };
+    print "\n</script>\n<script src=\"rune-lister.js\"></script>"
+    };
+    {print}
+  '
+
+  awk "$AWK_SCRIPT" dist/index.html > docs/index.html
+}
+
+if [ "$1" = "post-build" ]; then post_build ; exit ; fi
+if [ "$1" = "publish" ]; then rm -rf dist/ docs/ ; npm run build && post_build ; rm -rf dist/ ; exit ; fi
+
+echo "Command not found"
